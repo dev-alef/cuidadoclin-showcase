@@ -13,6 +13,22 @@ Case de desenvolvimento de uma aplicação odontológica em evolução para SaaS
 
 ---
 
+## Uma interface pensada para o cuidado
+
+![Painel CuidadoClin com pacientes fictícios da Clínica Horizonte](assets/painel-desktop.png)
+
+Superfícies claras, verde-água e cartões de vidro fosco organizam os fluxos do consultório. A navegação mantém pacientes, cadastro e conta próximos; a mesma identidade acompanha os formulários e documentos.
+
+<table>
+<tr>
+<td width="72%"><img src="assets/acesso.png" alt="Tela de acesso do CuidadoClin" /></td>
+<td width="28%"><img src="assets/painel-celular.png" alt="Lista de pacientes fictícios em celular" /></td>
+</tr>
+<tr><td>Tela de acesso</td><td>Layout responsivo</td></tr>
+</table>
+
+**Todas as capturas foram produzidas em demonstração local com dados fictícios.** Não mostram pacientes, credenciais ou o ambiente de uma clínica real. Não há acesso público ao sistema de clientes.
+
 ## O problema
 
 Organizar o cadastro de pacientes, consultar informações de anamnese e preparar documentos faz parte da rotina de um consultório. O CuidadoClin reúne esses fluxos em uma aplicação web e preserva a identidade visual dos documentos da clínica.
