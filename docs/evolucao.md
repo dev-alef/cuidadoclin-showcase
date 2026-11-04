@@ -2,7 +2,7 @@
 
 ## Concluído na implementação local
 
-Contas e clínicas, papéis, sessões, equipe, isolamento na API e no banco, documentos personalizados, interface responsiva e demo separada. O backend passou por revisão independente; a interface está em revisão final.
+Contas e clínicas, papéis, sessões, equipe, isolamento na API e no banco, documentos personalizados, interface responsiva e demo separada. Backend e interface passaram por revisão independente; os achados foram corrigidos e revalidados.
 
 ## Evidências disponíveis
 
@@ -16,7 +16,7 @@ A data civil foi corrigida para evitar deslocamento de dia por fuso. Essa corre�
 
 ## Antes da publicação SaaS
 
-Concluir revisão da interface, recuperar acesso operacional, restaurar backup atual em ambiente isolado, validar proxy/cookies na hospedagem e executar migração coordenada. A produção ainda não foi migrada; o usuário legado deverá manter sua senha e receber vínculo de administrador + dentista na clínica de origem.
+Recuperar acesso operacional, restaurar backup atual em ambiente isolado, validar proxy/cookies na hospedagem e executar migração coordenada. A produção ainda não foi migrada; o usuário legado deverá manter sua senha e receber vínculo de administrador + dentista na clínica de origem.
 
 Entrega real de e-mail não foi verificada. Convites/reset na interface foram também exercitados com respostas sintéticas; isso não prova entrega. O piloto admite links privados preparados pelo operador, sem prometer e-mail automático.
 

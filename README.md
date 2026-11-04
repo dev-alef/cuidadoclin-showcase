@@ -29,7 +29,7 @@ O projeto começou com pacientes, anamneses e PDFs de uma clínica odontológica
 
 ## Estado do projeto
 
-A implementação SaaS está em revisão final e foi exercitada em ambiente local com PostgreSQL e dados sintéticos. **A migração SaaS em produção ainda está pendente.** A versão publicada recebeu o novo visual e conserva o modelo anterior de conta única.
+A implementação SaaS foi revisada e exercitada em ambiente local com PostgreSQL e dados sintéticos. **A migração SaaS em produção ainda está pendente.** A versão publicada recebeu o novo visual e conserva o modelo anterior de conta única.
 
 | Recurso | Estado da implementação SaaS |
 | --- | --- |

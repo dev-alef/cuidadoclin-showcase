@@ -6,4 +6,4 @@ A evolução permite que uma pessoa participe de várias clínicas, com papéis 
 
 O foco desta versão é preservar a rotina existente e permitir equipes independentes. Não há resultados comerciais ou economia de tempo anunciados: esses indicadores não foram medidos neste case.
 
-A implementação SaaS está em revisão final após ensaios locais. A migração em produção permanece pendente. Outras especialidades, cobrança, cadastro público e assinatura digital ficam fora desta versão.
+A implementação SaaS foi revisada após ensaios locais. A migração em produção permanece pendente. Outras especialidades, cobrança, cadastro público e assinatura digital ficam fora desta versão.
