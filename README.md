@@ -5,7 +5,7 @@
 
 **Pacientes · Anamnese · Equipe · Documentos personalizados**
 
-Case de uma aplicação odontológica em evolução para um SaaS multi-clínicas.
+Case de um SaaS de gestão odontológica, publicado em piloto com base para múltiplas clínicas.
 
 [Projeto](docs/projeto.md) · [Demonstração](docs/demonstracao.md) · [Arquitetura](docs/arquitetura.md) · [Decisões](docs/decisoes.md) · [Evolução](docs/evolucao.md)
 
@@ -29,17 +29,17 @@ O projeto começou com pacientes, anamneses e PDFs de uma clínica odontológica
 
 ## Estado do projeto
 
-A implementação SaaS foi revisada e exercitada em ambiente local com PostgreSQL e dados sintéticos. **A migração SaaS em produção ainda está pendente.** A versão publicada recebeu o novo visual e conserva o modelo anterior de conta única.
+A primeira versão SaaS foi publicada em **4 de novembro de 2026** para o piloto da clínica original. O corte confirmou preservação da conta, recuperação dos registros cifrados, papel restrito no banco e sessão segura pelo endereço publicado. Os testes de múltiplas clínicas utilizam dados sintéticos; o onboarding de novos clientes permanece assistido.
 
 | Recurso | Estado da implementação SaaS |
 | --- | --- |
-| Contas individuais, sessões e seleção de clínica | Implementado e testado localmente |
+| Contas individuais, sessões e seleção de clínica | Publicados no piloto; cenários multi-clínicas testados com dados sintéticos |
 | Administrador, dentista e recepção | Permissões por vínculo, verificadas no servidor |
 | Cadastro, busca, histórico e arquivamento | Implementados, com paginação e cadastro separado da anamnese |
 | Equipe, convites e recuperação | Implementados; entrega real de e-mail depende de configuração e validação |
-| Isolamento no banco | PostgreSQL RLS e papel restrito, ensaiados localmente |
+| Isolamento no banco | PostgreSQL RLS e papel restrito implantados; cenários entre clínicas ensaiados com dados sintéticos |
 | Cinco tipos de PDF | Emitente autorizado e modelos privados por clínica/profissional |
-| Preservação do legado | Migração e comparação visual ensaiadas com dados sintéticos |
+| Preservação do legado | Conta e registros preservados no piloto; comparação visual dos PDFs ensaiada com dados sintéticos |
 
 ## Decisões que orientam a engenharia
 
@@ -56,7 +56,7 @@ React, Vite e React Router na interface; Node.js/Express na API; PostgreSQL; ses
 
 Os ensaios incluem permissões, isolamento entre clínicas, concorrência de convites, recuperação de backup e PDFs. As jornadas de navegador usam dados sintéticos e verificam cadastro, troca de clínica, documentos e logout. Isso não equivale a uma auditoria ou certificação de produção.
 
-[Leia os limites e a próxima etapa de publicação →](docs/evolucao.md)
+[Leia as evidências e os limites do piloto →](docs/evolucao.md)
 
 ## Autoria
 

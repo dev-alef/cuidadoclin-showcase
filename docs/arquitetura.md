@@ -18,4 +18,4 @@ Na interface, trocar de clínica cancela requisições, descarta respostas atras
 
 Os documentos usam o próprio perfil profissional autorizado. Modelos pessoais são vinculados ao profissional; modelos institucionais recebem sua identificação na emissão. Publicação de modelos é assistida, privada e versionada.
 
-Essa arquitetura está implementada e ensaiada localmente; validação do proxy e dos cookies na hospedagem e migração de produção ainda são etapas de publicação.
+Essa arquitetura foi implementada e ensaiada localmente. O piloto foi publicado em 04/11/2026 com papel restrito, migração conferida e validação de proxy, sessão e cookie no endereço hospedado. Os cenários entre múltiplas clínicas foram exercitados com dados sintéticos.
