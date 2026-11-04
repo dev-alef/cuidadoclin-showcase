@@ -3,94 +3,61 @@
 # CuidadoClin
 ### Organização para a clínica. Mais tempo para cuidar.
 
-**Gestão de pacientes · Histórico de anamnese · Documentos personalizados**
+**Pacientes · Anamnese · Equipe · Documentos personalizados**
 
-Case de desenvolvimento de uma aplicação odontológica em evolução para SaaS.
+Case de uma aplicação odontológica em evolução para um SaaS multi-clínicas.
 
-[O projeto](docs/projeto.md) · [Demonstração fictícia](docs/demonstracao.md) · [Arquitetura](docs/arquitetura.md) · [Decisões](docs/decisoes.md) · [Evolução](docs/evolucao.md)
+[Projeto](docs/projeto.md) · [Demonstração](docs/demonstracao.md) · [Arquitetura](docs/arquitetura.md) · [Decisões](docs/decisoes.md) · [Evolução](docs/evolucao.md)
 
 </div>
 
----
+![Painel CuidadoClin com clínica e pacientes fictícios](assets/painel-desktop.png)
 
-## Uma interface pensada para o cuidado
+Superfícies claras, verde-água e cartões de vidro fosco organizam a rotina. A clínica ativa aparece na navegação; cada pessoa encontra as ações permitidas pelo seu vínculo.
 
-![Painel CuidadoClin com pacientes fictícios da Clínica Horizonte](assets/painel-desktop.png)
+<details><summary>Veja o visual no celular</summary>
 
-Superfícies claras, verde-água e cartões de vidro fosco organizam os fluxos do consultório. A navegação mantém pacientes, cadastro e conta próximos; a mesma identidade acompanha os formulários e documentos.
+<img src="assets/painel-celular.png" width="320" alt="CuidadoClin no celular com navegação administrativa e pacientes fictícios" />
 
-<table>
-<tr>
-<td width="72%"><img src="assets/acesso.png" alt="Tela de acesso do CuidadoClin" /></td>
-<td width="28%"><img src="assets/painel-celular.png" alt="Lista de pacientes fictícios em celular" /></td>
-</tr>
-<tr><td>Tela de acesso</td><td>Layout responsivo</td></tr>
-</table>
+</details>
 
-**Todas as capturas foram produzidas em demonstração local com dados fictícios.** Não mostram pacientes, credenciais ou o ambiente de uma clínica real. Não há acesso público ao sistema de clientes.
+**Todas as capturas são de uma demonstração offline com dados fictícios.** Este repositório contém somente documentação e imagens: não distribui código, aplicativo executável, credenciais ou acesso a clientes.
 
-## O problema
+## Do consultório ao produto
 
-Organizar o cadastro de pacientes, consultar informações de anamnese e preparar documentos faz parte da rotina de um consultório. O CuidadoClin reúne esses fluxos em uma aplicação web e preserva a identidade visual dos documentos da clínica.
+O projeto começou com pacientes, anamneses e PDFs de uma clínica odontológica. A evolução mantém esses fluxos e acrescenta contas individuais, equipe, permissões e separação dos dados entre organizações, com uma única base de código.
 
-O projeto parte de uma aplicação para uma clínica odontológica. A próxima etapa é permitir que pequenas clínicas utilizem o mesmo produto com contas individuais, permissões e dados separados por organização.
+## Estado do projeto
 
-## O que existe hoje
+A implementação SaaS está em revisão final e foi exercitada em ambiente local com PostgreSQL e dados sintéticos. **A migração SaaS em produção ainda está pendente.** A versão publicada recebeu o novo visual e conserva o modelo anterior de conta única.
 
-| Recurso | Estado da base atual |
+| Recurso | Estado da implementação SaaS |
 | --- | --- |
-| Login, troca de senha e encerramento de sessão | Implementado para conta administrativa única |
-| Cadastro, edição e consulta de pacientes | Implementado |
-| Arquivamento e restauração de pacientes | Implementado |
-| Registro e histórico de anamnese | Implementado |
-| Ficha, atestado, orçamento, receituário e folha timbrada em PDF | Implementado |
-| Identidade personalizada nos documentos | Modelo específico da clínica de origem |
-| Contas individuais, permissões e múltiplas clínicas | Planejado |
-| Identidade visual e modelo de PDF por clínica | Planejado |
+| Contas individuais, sessões e seleção de clínica | Implementado e testado localmente |
+| Administrador, dentista e recepção | Permissões por vínculo, verificadas no servidor |
+| Cadastro, busca, histórico e arquivamento | Implementados, com paginação e cadastro separado da anamnese |
+| Equipe, convites e recuperação | Implementados; entrega real de e-mail depende de configuração e validação |
+| Isolamento no banco | PostgreSQL RLS e papel restrito, ensaiados localmente |
+| Cinco tipos de PDF | Emitente autorizado e modelos privados por clínica/profissional |
+| Preservação do legado | Migração e comparação visual ensaiadas com dados sintéticos |
 
-**Este repositório é uma apresentação documental.** Não contém o código-fonte da aplicação, um aplicativo executável ou acesso ao ambiente de clientes. Os cenários de demonstração são integralmente fictícios. A evolução multi-clínicas ainda não foi implementada na base apresentada.
+## Decisões que orientam a engenharia
 
-## Percurso principal
+- Código compartilhado; acesso determinado por usuário, clínica e permissão.
+- Administrador não recebe acesso clínico automaticamente.
+- Trocar de clínica limpa formulários e documentos e descarta respostas atrasadas.
+- Cadastro e anamnese são etapas independentes: uma falha clínica não duplica o paciente.
+- Documentos pessoais permanecem exclusivos de seu profissional; outras clínicas usam identidade própria.
+- Demonstração e produção usam adaptadores separados; nenhum dado real entra no portfólio.
 
-```mermaid
-flowchart LR
-    A[Entrar no sistema] --> B[Consultar ou cadastrar paciente]
-    B --> C[Consultar histórico de anamnese]
-    C --> D[Preparar documento]
-    D --> E[Baixar PDF timbrado]
-```
+## Tecnologia e validação
 
-[Explore um atendimento fictício e exemplos de dados →](docs/demonstracao.md)
+React, Vite e React Router na interface; Node.js/Express na API; PostgreSQL; sessões opacas em cookie HttpOnly, CSRF e bcrypt; geração de PDFs com pdf-lib.
 
-## Tecnologia
+Os ensaios incluem permissões, isolamento entre clínicas, concorrência de convites, recuperação de backup e PDFs. As jornadas de navegador usam dados sintéticos e verificam cadastro, troca de clínica, documentos e logout. Isso não equivale a uma auditoria ou certificação de produção.
 
-| Camada | Tecnologia |
-| --- | --- |
-| Interface | React 19, Vite e React Router |
-| API | Node.js e Express |
-| Persistência | PostgreSQL |
-| Autenticação | JWT e bcrypt |
-| Documentos | pdf-lib |
-| Verificação | Test runner nativo do Node e lint do frontend |
-
-## Destaques de engenharia
-
-- Separação entre interface, API e persistência.
-- Documentos obtidos por requisições autenticadas, sem credenciais na URL.
-- Revogação de sessões associada à conta e limites de tentativas persistidos no banco.
-- Migrações versionadas com verificação de integridade e aplicação transacional.
-- Planejamento da transição para múltiplas clínicas sem perder a personalização existente.
-
-Esses pontos descrevem a base de código inspecionada; não constituem auditoria de produção, certificação ou garantia de conformidade.
-
-## Próxima versão
-
-O primeiro público será formado por consultórios e pequenas clínicas odontológicas. A base compartilhada incluirá usuários, clínicas, permissões e identidade visual por clínica. Outras especialidades serão incorporadas gradualmente.
-
-[Veja o que está confirmado e o que ainda precisa ser definido →](docs/evolucao.md)
+[Leia os limites e a próxima etapa de publicação →](docs/evolucao.md)
 
 ## Autoria
 
-Projeto apresentado por [dev-alef](https://github.com/dev-alef).
-
-O código da aplicação é privado. Este repositório reúne exclusivamente documentação e exemplos preparados para portfólio. Estado documentado em **1 de novembro de 2026**.
+Projeto apresentado por [dev-alef](https://github.com/dev-alef). Código privado; case público documental. Estado documentado em **4 de novembro de 2026**.

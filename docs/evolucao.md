@@ -1,32 +1,25 @@
-# Evolução do CuidadoClin
+# Evolução e limites
 
-## Base atual
+## Concluído na implementação local
 
-Gestão de pacientes, histórico de anamnese e geração de documentos, com uma conta administrativa e um modelo visual específico.
+Contas e clínicas, papéis, sessões, equipe, isolamento na API e no banco, documentos personalizados, interface responsiva e demo separada. O backend passou por revisão independente; a interface está em revisão final.
 
-## Primeira versão SaaS — escopo confirmado
+## Evidências disponíveis
 
-- Contas individuais.
-- Clínicas independentes no mesmo produto.
-- Permissões por associação à clínica.
-- Separação de dados entre clínicas.
-- Identidade visual e documentos personalizados por clínica.
-- Preservação do modelo de documentos da clínica de origem.
+- PostgreSQL real descartável com papel restrito: isolamento, vínculos, convites e concorrência.
+- Backup e restauração com dados sintéticos e verificação de campos cifrados.
+- Cinco fluxos pessoais de PDF, seis páginas, com comparação raster ao baseline para entradas equivalentes.
+- Jornadas da interface: cadastro parcial sem duplicação, troca de clínica, permissões, PDFs e logout.
+- Demo offline sem requisições HTTP; build normal separado dos dados de exemplo.
 
-Esses itens são planejados. O repositório público não representa conclusão da implementação.
+A data civil foi corrigida para evitar deslocamento de dia por fuso. Essa correção intencional de conteúdo não é apresentada como visualmente idêntica à data errada anterior.
 
-## Critérios propostos para verificar a versão
+## Antes da publicação SaaS
 
-| Cenário | Evidência esperada |
-| --- | --- |
-| Usuário de uma clínica tenta acessar paciente de outra | Operação recusada no servidor |
-| Usuário tenta emitir documento de outra clínica | Operação recusada, sem PDF ou dados do paciente |
-| Duas clínicas emitem documentos | Cada PDF utiliza apenas a identidade correspondente |
-| Revogação do acesso de um membro | Requisições posteriores deixam de ser autorizadas |
-| Migração da clínica de origem | Dados e documentos preservados, com ensaio em ambiente isolado |
+Concluir revisão da interface, recuperar acesso operacional, restaurar backup atual em ambiente isolado, validar proxy/cookies na hospedagem e executar migração coordenada. A produção ainda não foi migrada; o usuário legado deverá manter sua senha e receber vínculo de administrador + dentista na clínica de origem.
 
-A matriz detalhada de permissões e a estratégia de verificação serão fechadas no plano técnico.
+Entrega real de e-mail não foi verificada. Convites/reset na interface foram também exercitados com respostas sintéticas; isso não prova entrega. O piloto admite links privados preparados pelo operador, sem prometer e-mail automático.
 
-## Depois da primeira versão
+## Fora do escopo
 
-Expansão para outras especialidades, orientada por necessidades verificadas. Cobrança de assinaturas, integrações e novos módulos deverão ser priorizados separadamente. Não há datas de lançamento prometidas neste documento.
+Cobrança, cadastro aberto, agenda nova, assinatura digital, anexos clínicos e outras especialidades. Não há data de lançamento ou certificação regulatória anunciada.

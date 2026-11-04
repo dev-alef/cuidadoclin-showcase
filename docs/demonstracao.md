@@ -1,51 +1,17 @@
-# Demonstração documental
+# Demonstração fictícia
 
-> Todos os nomes e registros desta página são fictícios. Os identificadores DEMO são rótulos de apresentação, não identificadores de um banco real. Esta página não é uma demonstração interativa.
+As capturas mostram a demonstração offline recém-iniciada, sem acesso à API ou a dados reais. Os nomes Ana Exemplo, Bruno Modelo, Carla Fictícia, Davi Ilustrativo e Eva Teste são sintéticos; telefones zerados e endereços `example.invalid` são marcadores sem uso real.
 
-## Clínica fictícia
+A Clínica Horizonte demonstra administração e odontologia; a Clínica Aurora demonstra acesso de recepção. A troca de clínica muda o conjunto de dados e as ações disponíveis.
 
-**Clínica Horizonte — demonstração CuidadoClin**
+## Percurso ilustrado
 
-Identidade de exemplo: azul-petróleo, fundo branco e cabeçalho com o nome da clínica. Não utiliza logotipo, timbrado ou dados da clínica de origem.
+1. Escolher a clínica ativa.
+2. Consultar ou cadastrar um paciente fictício.
+3. Acessar a anamnese quando o papel permite.
+4. Consultar equipe e identidade com acesso administrativo.
+5. Trocar de clínica e observar as permissões da recepção.
 
-## Exemplos de pacientes
+Os PDFs ficam indisponíveis na demo offline. Os cinco fluxos de documentos foram testados separadamente com API e banco locais descartáveis; as imagens não mostram o timbrado pessoal da clínica de origem.
 
-| Identificador fictício | Nome fictício | E-mail de exemplo | Situação |
-| --- | --- | --- | --- |
-| DEMO-001 | Paciente Exemplo A | paciente.a@example.com | Ativo |
-| DEMO-002 | Paciente Exemplo B | paciente.b@example.com | Ativo |
-| DEMO-003 | Paciente Exemplo C | paciente.c@example.com | Arquivado |
-
-CPF, telefone, endereço, assinaturas e registros profissionais foram omitidos. Nenhum dado foi extraído de clientes.
-
-## Roteiro: consultar e preparar um documento
-
-| Etapa | Ação ilustrada | Resultado esperado na aplicação existente |
-| --- | --- | --- |
-| 1 | Entrar com a conta administrativa de teste | Acessar a lista de pacientes |
-| 2 | Abrir Paciente Exemplo A | Consultar cadastro e histórico |
-| 3 | Registrar anamnese fictícia | Acrescentar uma entrada ao histórico |
-| 4 | Preparar orçamento de demonstração | Gerar um PDF autenticado |
-| 5 | Arquivar Paciente Exemplo C | Manter o cadastro disponível para restauração |
-
-Nenhuma credencial pública ou serviço externo é necessário para ler este roteiro.
-
-## Conteúdo ilustrativo de documento
-
-| Campo | Exemplo fictício |
-| --- | --- |
-| Clínica | Clínica Horizonte — DEMONSTRAÇÃO |
-| Documento | Orçamento ilustrativo |
-| Paciente | Paciente Exemplo A |
-| Item | Serviço demonstrativo sem finalidade clínica |
-| Quantidade | 1 |
-| Valor | R$ 100,00 — valor arbitrário de demonstração |
-| Observação | Documento fictício, sem validade clínica ou comercial |
-
-Esta tabela representa o conteúdo de exemplo, não uma captura de tela ou um PDF produzido pela aplicação.
-
-## Cenário futuro: duas clínicas
-
-**Planejado, ainda não disponível:** uma segunda organização, Clínica Aurora — Demonstração, terá equipe e pacientes próprios. Uma tentativa de acessar um registro da Horizonte a partir da Aurora deverá ser recusada, inclusive na geração de PDF.
-
-Cada clínica deverá usar sua própria identidade. Esse cenário será validado depois da implementação multi-clínicas.
+Este repositório publica imagens e documentação, não o HTML executável nem credenciais. Não existe ambiente de clientes acessível pelo showcase.
